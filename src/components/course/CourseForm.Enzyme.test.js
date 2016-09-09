@@ -6,7 +6,7 @@ import CourseForm from './CourseForm';
 function setup(saving) {
   let props = {
     course: {},
-    loading: saving || false,
+    saving: saving || false,
     errors: {},
     onSave: () => {},
     onChange: () => {}

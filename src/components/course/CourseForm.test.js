@@ -8,7 +8,7 @@ import SelectInput from '../common/SelectInput';
 function setup(saving) {
   let props = {
     course: {},
-    loading: saving || false,
+    saving: saving || false,
     errors: {},
     onSave: () => {},
     onChange: () => {}
