@@ -2,6 +2,7 @@ import expect from 'expect';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import App from './App';
+import Header from './common/Header';
 
 function setup() {
 
@@ -20,10 +21,10 @@ describe('App via React Test Utils', () => {
     expect(App).toExist();
   });
 
-  it('renders p tag temporarily', () => {
+  it('renders a Header component as its first child', () => {
     const {output} = setup();
     expect(output.type).toBe('div');
-    let [p] = output.props.children;
-    expect(p.type).toBe('p');
+    let [header] = output.props.children;
+    expect(header.type).toBe(Header);
   });
 });
