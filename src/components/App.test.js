@@ -1,7 +1,7 @@
 import expect from 'expect';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-import App from './App';
+import {App} from './App';
 import Header from './common/Header';
 
 function setup() {
