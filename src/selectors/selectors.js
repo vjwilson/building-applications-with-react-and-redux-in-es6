@@ -6,3 +6,9 @@ export function authorsFormattedForDropdown(authors) {
     };
   });
 }
+
+export function sortCourses(courses) {
+  return [].concat(courses).sort((course1, course2) => {
+    return (course1.title > course2.title) ? 1 : -1;
+  });
+}

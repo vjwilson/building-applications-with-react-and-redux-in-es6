@@ -1,5 +1,6 @@
 import expect from 'expect';
 import {authorsFormattedForDropdown} from './selectors';
+import {sortCourses} from './selectors';
 
 describe('Author Selectors', () => {
   describe('authorsFormattedForDropdown', () => {
@@ -15,6 +16,26 @@ describe('Author Selectors', () => {
         ];
 
         expect(authorsFormattedForDropdown(authors)).toEqual(expected);
+    });
+  });
+});
+
+describe('Course Selectors', () => {
+  describe('sortCourses', () => {
+    it('should return courses sorted alphabetically', () => {
+        const courses = [
+          {id: 'b-course', title: 'B Course'},
+          {id: 'c-course', title: 'C Course'},
+          {id: 'a-course', title: 'A Course'}
+        ];
+
+        const expected = [
+          {id: 'a-course', title: 'A Course'},
+          {id: 'b-course', title: 'B Course'},
+          {id: 'c-course', title: 'C Course'}
+        ];
+
+        expect(sortCourses(courses)).toEqual(expected);
     });
   });
 });
