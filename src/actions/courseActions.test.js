@@ -23,6 +23,23 @@ describe('Course Actions', () => {
       expect(action).toEqual(expectedAction);
     });
   });
+
+  describe('deleteCourseSuccess', () => {
+    it('should create a DELETE_COURSE_SUCCESS action', () => {
+      // arrange
+      const courseId = 'clean-code';
+      const expectedAction = {
+        type: types.DELETE_COURSE_SUCCESS,
+        courseId: courseId
+      };
+
+      // act
+      const action = courseActions.deleteCourseSuccess(courseId);
+
+      // asset
+      expect(action).toEqual(expectedAction);
+    });
+  });
 });
 
 const middleware = [thunk];

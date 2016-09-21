@@ -5,12 +5,24 @@ import * as courseActions from '../../actions/courseActions';
 import CourseList from './CourseList';
 import {browserHistory} from 'react-router';
 import {sortCourses} from '../../selectors/selectors';
+import toastr from 'toastr';
 
 class CoursesPage extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
+    this.onClickDelete = this.onClickDelete.bind(this);
+  }
+
+  onClickDelete(courseId) {
+    this.props.actions.deleteCourse(courseId)
+      .then(() => {
+        toastr.success('Course deleted successfully.', 'Success!');
+      })
+      .catch((error) => {
+        toastr.error(`${error} Course could not be deleted. Try again.`, 'Error!');
+      });
   }
 
   redirectToAddCoursePage() {
@@ -27,7 +39,7 @@ class CoursesPage extends React.Component {
           onClick={this.redirectToAddCoursePage}>
           Add Course
         </button>
-        <CourseList courses={this.props.courses} />
+        <CourseList courses={this.props.courses} onDelete={this.onClickDelete} />
       </div>
     );
   }
